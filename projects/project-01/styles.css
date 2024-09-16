@@ -1,7 +1,22 @@
 h1 {
     font-style: italic;
+    position: relative;
+    top: 500px;
 }
 
 h2 {
     font-weight: lighter;
+    position: relative;
+    top: 500px;
+}
+
+body {
+    padding: 20px 10px 20px 20px;
+    margin-bottom: 3%;
+    margin-top: 3%
+}
+
+p {
+    position: relative;
+    top: 0px;
 }
