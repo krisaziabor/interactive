@@ -23,11 +23,28 @@
         .black-and-white {
             filter: grayscale(100%);
         }
+
+        .group-ungroup {
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+            display: block;
+        }
+
+        #image-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="credit">This website is based on the design of the <a href="https://enzomari.com/">Enzo Mari archive</a> by <a href="https://krisaziabor.com/">Kris Aziabor</a>.</div>
+    
+    <!-- Group/Ungroup text -->
+    <div class="group-ungroup">Group/Ungroup Photos</div>
+    
+    <!-- Container for the images -->
+    <div id="image-container"></div>
 
     <script>
         // define your "batch of images" in an array
@@ -42,6 +59,9 @@
             "<img src='images/horse_8.jpg'>"
         ];
 
+        // Store original image order for ungrouping
+        var original_order = [];
+
         // this function randomly picks an image from the batch
         function random_image() {
             return Math.floor(Math.random() * images.length);
@@ -49,7 +69,6 @@
 
         // this function adds the randomly-selected image to the page
         function add_image() {
-
             // Make all current images black and white
             var all_images = document.querySelectorAll('img');
             all_images.forEach(function (img) {
@@ -70,8 +89,11 @@
             // assign that random width to the new image
             new_image.style.width = random_width_pixels;
 
-            // add the new image to the document's body (so it's visible!)
-            document.body.prepend(new_image);
+            // add the new image to the image container
+            document.getElementById('image-container').prepend(new_image);
+
+            // Save the original order of the image for ungrouping
+            original_order.push(new_image);
 
             // Remove the grayscale filter from the newly added image
             var latest_image = new_image.querySelector('img');
@@ -80,6 +102,45 @@
             // Set up the click event to add a new image
             new_image.addEventListener('click', add_image);
         }
+
+        // Group/Ungroup toggle functionality
+        var isGrouped = false;
+        document.querySelector('.group-ungroup').addEventListener('click', function () {
+            var imageContainer = document.getElementById('image-container');
+
+            if (isGrouped) {
+                // If grouped, ungroup and restore original order
+                imageContainer.innerHTML = ''; // Clear all images in the container
+                original_order.forEach(function (imageDiv) {
+                    imageContainer.append(imageDiv); // Reinsert in original order
+                });
+                isGrouped = false;
+            } else {
+                // Group the images by their source file (e.g., horse_1.jpg, horse_2.jpg, etc.)
+                var grouped_images = {};
+
+                // Sort the current images by their source file
+                document.querySelectorAll('#image-container img').forEach(function (img) {
+                    var src = img.src.split('/').pop();
+                    if (!grouped_images[src]) {
+                        grouped_images[src] = [];
+                    }
+                    grouped_images[src].push(img.closest('div'));
+                });
+
+                // Clear the current images from the container
+                imageContainer.innerHTML = '';
+
+                // Re-add images, grouped by their type
+                for (var key in grouped_images) {
+                    grouped_images[key].forEach(function (div) {
+                        imageContainer.append(div);
+                    });
+                }
+
+                isGrouped = true;
+            }
+        });
 
         // so that the first image appears when the page loads, run the function once.
         add_image();
