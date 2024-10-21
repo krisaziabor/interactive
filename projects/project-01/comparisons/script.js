@@ -35,5 +35,5 @@ const nextPage = currentPage === 15 ? 1 : currentPage + 1;
 
 // Set up the Next button click event
 document.getElementById('next-button').addEventListener('click', () => {
-  window.location.href = `/comparisons/${String(nextPage).padStart(2, '0')}.html`;
+  window.location.href = `comparisons/${String(nextPage).padStart(2, '0')}.html`;
 });

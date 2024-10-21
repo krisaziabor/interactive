@@ -8,11 +8,16 @@
   body {
     height: 100vh;
     background-color: black;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, sans-serif;
     color: white;
     overflow: hidden;
   }
+
+  .ad-side {
+    font-family: Times New Roman, serif;
+  }
   
+
   /* Comparison container with two equal sides */
   .comparison-container {
     display: flex;

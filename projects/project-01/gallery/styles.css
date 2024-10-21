@@ -31,6 +31,18 @@ body {
     width: 100%;
     text-align: center;
   }
+
+  .header-container h1, h2, h3 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .header-container h2 {
+    font-family: "Helvetica", sans-serif;
+  }
   
   /* Gallery Container */
   .gallery-container {
@@ -73,8 +85,23 @@ body {
     filter: grayscale(100%) brightness(0.5);
   }
 
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    text-align: center;
+    width: 60%;
+  }
 
-  .header-container h2 {
+  /* Header Text Styles */
+.header-container h1,
+.header-container h2,
+.header-container h3 {
+  margin: 0;
+  color: white; /* Set header text color to white */
+}
+
+  /* .header-container h2 {
     font-size: 3rem;
     font-family: "Helvetica", sans-serif;
   }
@@ -82,7 +109,7 @@ body {
   .header-container h1 {
     font-size: 3rem;
     font-family: serif;
-  }
+  } */
   
   /* Hover Text Styling */
   .hover-text {

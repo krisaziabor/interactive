@@ -153,7 +153,7 @@ const generatePhotoPairs = (pairs) => {
 
     // Redirect to comparison page with the pair ID in the query parameter
     const redirectToComparison = () => {
-      window.location.href = `/comparisons/${id}.html`;
+      window.location.href = `comparisons/${id}.html`;
     };
 
     // Attach click events for redirection
