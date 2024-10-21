@@ -1,0 +1,70 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+  }
+  
+  /* Full-screen image container */
+  .image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Ensure the image fits within the screen, with black borders if needed */
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Ensure the whole image fits without cropping */
+    object-position: center;
+    background-color: black;  /* Set background for uncovered areas */
+  }
+  
+  /* Overlay text */
+  .overlay-text {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .overlay-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .overlay-text p {
+    font-size: 1.2rem;
+  }
+  
+  /* Back to gallery button */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .back-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
