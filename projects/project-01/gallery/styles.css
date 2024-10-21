@@ -72,6 +72,17 @@ body {
   .grayscale-dark {
     filter: grayscale(100%) brightness(0.5);
   }
+
+
+  .header-container h2 {
+    font-size: 3rem;
+    font-family: "Helvetica", sans-serif;
+  }
+
+  .header-container h1 {
+    font-size: 3rem;
+    font-family: serif;
+  }
   
   /* Hover Text Styling */
   .hover-text {
