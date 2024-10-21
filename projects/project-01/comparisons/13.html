@@ -3,23 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comparison - More Amour Boutique</title>
+    <title>Comparison - Ad or Art</title>
     <link rel="stylesheet" href="/comparisons/comparison-styles.css" />
   </head>
   <body>
-    <div class="image-container">
-      <img src="/assets/13-art-ad.jpg" alt="More Amour Boutique Ad" />
-    </div>
+    <div class="comparison-container">
+      <!-- Left Ad Side -->
+      <div class="image-side" id="ad-side">
+        <img src="/assets/13-art-ad.jpg" alt="Ad Image" />
+        <div class="text-overlay ad-text">
+          <h2>Ad,</h2>
+          <p>These photos are some of the most explicit pieces of advertisement I have ever produced. I was tasked with taking photos of More Amour boutique's collection and this was one of the looks.</p>
+        </div>
+      </div>
 
-    <div class="overlay-text">
-      <h1>More Amour Boutique</h1>
-      <p>Promotional work capturing the essence of elegance and boutique charm.</p>
-    </div>
+
+      <!-- Right Art Side -->
+        <div class="image-side" id="art-side">
+            <img src="/assets/13-art-ad.jpg" alt="Art Image" />
+            <div class="text-overlay art-text">
+                <h2>Art?</h2>
+                <p>While it's existence as an ad is clear, this photo – and the full photoshoot – were rejected by the Maison board. The photos never made it on the Instagram as it did not fit the aesthetics they wished to advertise for themselves. This piece's dual existence as something accepted by one and rejected by another makes my believe there is art in this.</p>
+            </div>
+            </div>
+        </div>
+        
 
     <a href="/gallery.html" class="back-button">← Back to Gallery</a>
+    <button class="next-button" id="next-button">Next →</button>
 
-    <script>
-      window.onload = () => console.log('13.html loaded successfully');
-    </script>
+    <div class="toggle-container">
+      <button id="toggle-text-button">Hide Text</button>
+    </div>
+
+    <script src="/comparisons/script.js"></script>
   </body>
 </html>

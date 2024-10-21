@@ -8,48 +8,52 @@
   body {
     height: 100vh;
     background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     font-family: Arial, sans-serif;
     color: white;
-    position: relative;
+    overflow: hidden;
   }
   
-  /* Full-screen image container */
-  .image-container {
+  /* Comparison container with two equal sides */
+  .comparison-container {
+    display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+  }
+  
+  /* Each side (Ad/Art) */
+  .image-side {
+    flex: 1;
     position: relative;
     overflow: hidden;
   }
   
-  /* Ensure the image fits within the screen, with black borders if needed */
-  .image-container img {
+  .image-side img {
     width: 100%;
     height: 100%;
-    object-fit: contain;  /* Ensure the whole image fits without cropping */
-    object-position: center;
-    background-color: black;  /* Set background for uncovered areas */
+    object-fit: cover;
+    filter: blur(0px); /* No blur initially */
+    transition: filter 1s ease-in-out;
   }
   
-  /* Overlay text */
-  .overlay-text {
+  /* Text Overlay */
+  .text-overlay {
     position: absolute;
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    opacity: 0; /* Initially invisible */
+    transition: opacity 1s ease-in-out;
   }
   
-  .overlay-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+  /* Visible class for scrolling effect */
+  .visible {
+    opacity: 1;
   }
   
-  .overlay-text p {
-    font-size: 1.2rem;
+  /* Blur effect on images */
+  .blur {
+    filter: blur(8px);
   }
   
   /* Back to gallery button */
@@ -57,7 +61,6 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 1.2rem;
     text-decoration: none;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
@@ -67,4 +70,42 @@
   
   .back-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Next button */
+.next-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .next-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .toggle-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+
+#toggle-text-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #toggle-text-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
   }
