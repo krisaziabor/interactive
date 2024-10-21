@@ -1,0 +1,104 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* Main Content Wrapper */
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    gap: 20px;
+  }
+  
+  /* Header Container */
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Gallery Container */
+  .gallery-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 70vh;
+    gap: 20px;
+  }
+  
+  /* Each Gallery Side */
+  .gallery-side {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Default Grayscale Effect on Images */
+  .gallery-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s, filter 0.3s;
+    filter: grayscale(100%) brightness(0.5); /* Default grayscale effect */
+  }
+  
+  /* Active Pair Effect: Remove Grayscale */
+  .active {
+    filter: none !important; /* Ensure grayscale is removed */
+    transform: scale(1.05); /* Slight scaling effect */
+  }
+  
+  /* Non-Active Images: Grayscale Effect */
+  .grayscale-dark {
+    filter: grayscale(100%) brightness(0.5);
+  }
+  
+  /* Hover Text Styling */
+  .hover-text {
+    font-family: "Helvetica", sans-serif;
+    font-size: 0.9rem;
+    color: white;
+    text-align: center;
+    min-height: 30px;
+  }
+  
+  /* Mobile Message */
+  .mobile-message {
+    display: none;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Helvetica", sans-serif;
+    color: white;
+    padding: 20px;
+  }
+  
+  /* Mobile Breakpoint */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      display: none;
+    }
+  
+    .mobile-message {
+      display: block;
+    }
+  }
