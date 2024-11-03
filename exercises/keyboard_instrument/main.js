@@ -1,4 +1,8 @@
 let keySequence = '';
+const keyDisplay = document.getElementById("key_display");
+
+// Set initial text
+keyDisplay.innerText = "color maker";
 
 document.body.onkeydown = function(keypress_event) {
   const key = keypress_event.key;
@@ -6,7 +10,7 @@ document.body.onkeydown = function(keypress_event) {
   // Allow only hexadecimal characters and limit to 6 characters
   if (/^[a-fA-F0-9]$/.test(key) && keySequence.length < 6) {
     keySequence += key;
-    document.getElementById("key_display").innerText = keySequence;
+    keyDisplay.innerText = keySequence;
 
     // Change the background color immediately after 6 characters
     if (keySequence.length === 6) {
@@ -24,8 +28,10 @@ document.body.onkeydown = function(keypress_event) {
       document.body.style.backgroundColor = `#${keySequence}`;
     }
     keySequence = ''; // Reset the key sequence
+    keyDisplay.innerText = "color maker"; // Reset the display text
   } else if (keySequence.length === 6 && key !== 'Enter') {
     console.log(`HEX code not activated: ${keySequence}`);
     keySequence = ''; // Reset if not Enter
+    keyDisplay.innerText = "color maker";; // Reset the display text
   }
 };
