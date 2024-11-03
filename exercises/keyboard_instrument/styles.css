@@ -1,3 +1,13 @@
 .xl-type {
   font-size: 100px;
 }
+
+#key_display {
+  font-size: 1600px;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
