@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Score Counter</title>
+    <style>
+        /* Basic styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: grey; /* Initially greyed out */
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed; /* Disabled cursor */
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button.active {
+            background-color: #4CAF50;
+            cursor: pointer;
+        }
+
+        .button.active:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling the score display */
+        .score {
+            font-size: 24px;
+            margin: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Score display -->
+    <div class="score">
+        <span id="krisScore" onclick="incrementScore('kris')">Kris: 0</span> - 
+        <span id="jayScore" onclick="incrementScore('jay')">Jay: 0</span>
+    </div>
+
+    <!-- Interactive button -->
+    <button class="button" id="actionButton" onclick="handleButtonClick()" disabled>Waiting for the game to start...</button>
+
+    <script>
+        // Initial scores
+        let kris = 0;
+        let jay = 0;
+        
+        // Variable to track the current button state
+        let buttonState = 0;
+
+        // Function to update the button text and style based on scores
+        function updateButtonText() {
+            const button = document.getElementById("actionButton");
+
+            // Check if scores are tied
+            if (kris === jay) {
+                button.classList.remove("active");
+                button.disabled = true;
+                button.innerText = "a tie? rly?";
+                return; // Exit the function if scores are tied
+            } else {
+                button.classList.add("active");
+                button.disabled = false;
+            }
+
+            // Update button text based on score comparison and button state
+            if (kris > jay) {
+                // Kris is winning
+                if (buttonState === 0) {
+                    button.innerText = "LMAOOOOO NEVER IN DOUBT WAS IT? SUBMIT THE SCORE";
+                } else if (buttonState === 1) {
+                    button.innerText = "PENDING KRIS'S SMS APPROVAL";
+                }
+            } else {
+                // Jay is winning
+                if (buttonState === 0) {
+                    button.innerText = "ABSOLUTE ROBBERY – ARE YOU SURE YOU ACTUALLY WON?";
+                } else if (buttonState === 1) {
+                    button.innerText = "BRO BE SERIOUS U DID NOT BEAT ME";
+                } else if (buttonState === 2) {
+                    button.innerText = "UGH WHATEVER SUBMIT THE SCORE";
+                } else if (buttonState === 3) {
+                    button.innerText = "PENDING KRIS'S SMS APPROVAL";
+                }
+            }
+        }
+
+        // Function to increment score and update display
+        function incrementScore(player) {
+            if (player === 'kris') {
+                kris++;
+                document.getElementById("krisScore").innerText = `Kris: ${kris}`;
+            } else if (player === 'jay') {
+                jay++;
+                document.getElementById("jayScore").innerText = `Jay: ${jay}`;
+            }
+            buttonState = 0; // Reset button state on score change
+            updateButtonText();
+        }
+
+        // Function to handle button click
+        function handleButtonClick() {
+            if (kris > jay) {
+                // If Kris is winning, button has only two states
+                if (buttonState === 0) {
+                    buttonState = 1;
+                }
+            } else {
+                // If Jay is winning, button has four states
+                if (buttonState < 3) {
+                    buttonState++;
+                }
+            }
+            updateButtonText();
+        }
+
+        // Initial setup
+        updateButtonText();
+    </script>
+
+</body>
+</html>
