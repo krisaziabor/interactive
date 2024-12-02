@@ -7,6 +7,30 @@
     <title>Kojo Aziabor League Report</title>
 </head>
 <body>
-    <h1>This is a test to see if my local fonts work!</h1>
+    <footer class="footer">
+        <!-- Title Row -->
+        <div class="footer-title">
+          <h1>Kojo Aziabor League Report</h1>
+        </div>
+      
+        <!-- Date and Subtitle Row -->
+        <div class="footer-subtitle">
+          <p id="current-date"></p>
+          <p>Today's Paper</p>
+        </div>
+      
+        <!-- Latest Scores and Button Row -->
+        <div class="footer-bottom">
+          <p>LATEST SCORES
+            <br>
+            FIFA Kris 5-3, Tennis Jay 6-2 3-6 7-6 (7-5)...</p>
+          <button>Jay or Kris? Create a new record</button>
+        </div>
+      </footer>
+
+    <script>
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+    </script>
 </body>
 </html>

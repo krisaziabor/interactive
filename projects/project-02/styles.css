@@ -1,3 +1,7 @@
+body {
+    background-color: #F7F7F4;
+}
+
 @font-face {
     font-family: "editorialNew";
     src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
@@ -28,4 +32,58 @@ h1 {
     font-weight: 400;
     color: #000;
     margin: 0;
+}
+
+/* Footer Container */
+.footer {
+    display: grid;
+    font-family: "editorialNew";
+    grid-template-rows: auto auto auto; /* Three rows */
+    gap: 20px; /* Space between rows */
+    padding: 20px;
+  }
+  
+  /* Title Styling */
+  .footer-title h1 {
+    font-size: 4rem; /* Large title */
+    margin: 0;
+  }
+  
+  /* Subtitle Styling */
+  .footer-subtitle p {
+    margin: 0;
+    font-size: 2rem;
+    font-family: "ABCDiatypeEdu";
+  }
+  
+/* Bottom Row Styling */
+.footer-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Spacing between elements */
+    justify-content: space-between; /* Distribute space between elements */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: "ABCDiatypeEdu";
+    font-style: italic;
+}
+
+.footer-bottom button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff4757;
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: "ABCDiatypeEdu";
+    margin-left: auto; /* Push button to the far right */
+}
+
+.footer-bottom button:hover {
+    background-color: #e63946;
 }
