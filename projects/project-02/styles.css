@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "editorialNew";
+    src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-Medium.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+h1 {
+    font-family: "editorialNew";
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+}
