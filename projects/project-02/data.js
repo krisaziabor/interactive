@@ -1,7 +1,10 @@
 const { MongoClient } = require("mongodb");
+const dotenv = require("dotenv");
+
+dotenv.config({path: "./private.env"});
  
 // Replace the following with your Atlas connection string                                                                                                                                        
-const url = "mongodb+srv://admin:softwareforppl@softwareforpeople.4wmit.mongodb.net/?retryWrites=true&w=majority&appName=SoftwareforPeople";
+const url = process.env.URL;
 
 // Connect to your Atlas cluster
 const client = new MongoClient(url);
