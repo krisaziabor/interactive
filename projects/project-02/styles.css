@@ -1,7 +1,11 @@
 body {
     background-color: #F7F7F4;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* setting up two equal columns */
+    grid-template-rows: auto 1fr auto; /* Top to bottom: Header, main content, footer */
+    gap: 20px;
     min-height: 100vh;
     margin: 0;
 }
@@ -38,9 +42,76 @@ h1 {
     margin: 0;
 }
 
+.headline {
+    font-family: "editorialNew";
+    font-size: 2.5rem;
+    padding-left: 20px;
+    grid-column: 1 / 2; /* Occupies first column */
+    grid-row: 1 / 2; /* Stays in first row */
+    align-self: start; /* Content starts at top of container */
+    display: inline-block;
+}
+
+.image-container {
+    grid-column: 1 / 2; /* Occupies first column */
+    grid-row: 2 / 3; /* Below the headline */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container .caption {
+    margin-top: 10px;
+    font-family: "ABCDiatypeEdu";
+    font-size: 1rem;
+    color: #000;
+    align-content: start;
+}
+
+.scoreboard {
+    grid-column: 2 / 2; /* Occuppies second column */
+    grid-row: 1 / 2; /* first row */
+    display: flex;
+    justify-content: space-around; /* Spacing between Jay and Kris scores */
+    align-items: center;
+    /* padding: 10px */
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    font-family: "ABCDiatypeEdu";
+    font-size: 5rem;
+}
+
+.name {
+    font-family: "editorialNew";
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+
 /* Footer Container */
 .footer {
     display: grid;
+    grid-column: 1 / -1; /* Spanning accross both columns */
+    margin-top: auto;
     font-family: "editorialNew";
     grid-template-rows: auto auto auto; /* Three rows */
     gap: 20px; /* Space between rows */
@@ -78,7 +149,7 @@ h1 {
 .footer-bottom button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #ff4757;
+    background-color: #2D38B8;
     color: #fff;
     border: none;
     border-radius: 2rem;
@@ -88,7 +159,7 @@ h1 {
 }
 
 .footer-bottom button:hover {
-    background-color: #e63946;
+    background-color: #B82D2D;
 }
 
 footer {
