@@ -83,9 +83,10 @@ h1 {
     grid-column: 2 / 2; /* Occuppies second column */
     grid-row: 1 / 2; /* first row */
     display: flex;
-    justify-content: space-around; /* Spacing between Jay and Kris scores */
+    justify-content: flex-end; /* Spacing between Jay and Kris scores */
     align-items: center;
-    /* padding: 10px */
+    gap: 2rem;
+    padding: 20px;
 }
 
 .score-container {
@@ -104,6 +105,48 @@ h1 {
     font-size: 3rem;
     text-transform: uppercase;
     margin-top: 5px;
+}
+
+
+.reports-container {
+    grid-column: 2 / 2; /* Occupies second column */
+    grid-row: 2 / 3; /* Second row */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: end;
+    text-align: right;
+    padding: 20px;
+    width: 60%;
+    margin-left: auto;
+}
+
+.reports-container h2 {
+    grid-column: 1 / -1;
+    font-family: "editorialNew";
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.sport h3 {
+    font-family: "ABCDiatypeEdu";
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 5px;
+}
+
+.sport ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sport ul li {
+    font-family: "editorialNew";
+    font-size: 1rem;
+    color: #555;
 }
 
 
