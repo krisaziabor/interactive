@@ -113,7 +113,7 @@ h1 {
     grid-row: 2 / 3; /* Second row */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 2rem;
     justify-items: end;
     text-align: right;
     padding: 20px;
