@@ -223,7 +223,7 @@ footer {
     .headline {
         text-align: center;
         font-size: 1.75rem;
-        padding: 10px 0;
+        padding: 10px 0 0 0;
     }
 
     /* Scoreboard Section */
@@ -232,7 +232,7 @@ footer {
         justify-content: center; /* Center the divs horizontally */
         align-items: center;
         gap: 20px;
-        padding: 10px 0;
+        padding: 0px;
     }
 
     .score {
