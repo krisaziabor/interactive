@@ -7,35 +7,31 @@
 </head>
 <body>
     <h1>Player Info</h1>
-    <label for="playerID">Enter Player ID:</label>
-    <input type="number" id="playerID" placeholder="Enter ID">
-    <button id="fetchPlayer">Get Player Name</button>
-    <div id="playerInfo"></div>
+    <div id="player-1"></div>
+    <div id="player-2"></div>
 
     <script>
-        // Attach an event listener to the button
-        document.getElementById('fetchPlayer').addEventListener('click', () => {
-            // Get the player ID from the input field
-            const playerID = document.getElementById('playerID').value;
-
-            // Fetch the player's name from the backend
-            fetch(`http://localhost:3000/player/${playerID}`)
-                .then(response => {
+        // Function to fetch and display player info
+        function fetchAndDisplayPlayer(playerId, elementId) {
+            fetch(`http://localhost:3000/player/${playerId}`)
+                .then((response) => {
                     if (!response.ok) {
-                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                        throw new Error('Player not found');
                     }
                     return response.json();
                 })
-                .then(data => {
-                    // Display the player's name
-                    const playerInfoDiv = document.getElementById('playerInfo');
-                    playerInfoDiv.innerText = `Player Name: ${data.name}`;
+                .then((data) => {
+                    document.getElementById(elementId).innerText = `Player ${playerId}: ${data.name}`;
                 })
-                .catch(error => {
-                    // Handle errors (e.g., player not found)
-                    const playerInfoDiv = document.getElementById('playerInfo');
-                    playerInfoDiv.innerText = `Error: ${error.message}`;
+                .catch((error) => {
+                    document.getElementById(elementId).innerText = `Player ${playerId}: ${error.message}`;
                 });
+        }
+
+        // Load player data when the page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAndDisplayPlayer(1, 'player-1'); // Load player ID 1
+            fetchAndDisplayPlayer(2, 'player-2'); // Load player ID 2
         });
     </script>
 </body>

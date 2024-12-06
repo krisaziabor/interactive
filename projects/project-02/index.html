@@ -17,11 +17,11 @@
     <div class="scoreboard">
       <div class="score-container">
         <div class="score">183</div>
-        <div class="player-name">USER_1</div>
+        <div class="player-name" id="name-1">USER_1</div>
       </div>
       <div class="score-container">
         <div class="score">202</div>
-        <div class="player-name">USER_2</div>
+        <div class="player-name" id="name-2">USER_2</div>
       </div>
     </div>
 
@@ -102,6 +102,27 @@
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+
+        function fetchAndDisplayPlayer(playerId, elementId) {
+          fetch(`http://localhost:3000/player/${playerId}`)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error('Player not found');
+                }
+                return response.json();
+              })
+              .then((data) => {
+                document.getElementById(elementId).innerText = `${data.name}`;
+              })
+              .catch((error) => {
+                document.getElementById(elementId).innerText = `${error.message}`;
+              });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            fetchAndDisplayPlayer(1, 'name-1');
+            fetchAndDisplayPlayer(2, 'name-2');
+        });
     </script>
 </body>
 </html>
