@@ -1,0 +1,106 @@
+body {
+    background-color: #FFF;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* setting up 3 columns with equal size */
+    grid-template-rows: auto 1fr; /* Header at the top and main content below */
+    gap: 20px;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "abcDiatype";
+    color: #190E90;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "abcDiatype";
+    src: url("public/fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "abcDiatype";
+    src: url("public/fonts/ABCDiatypeEdu-Bold.otf") format("opentype");
+    font-weight: 700;
+}
+
+.header {
+    rid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: 40px;
+}
+
+.project-container {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-container .title {
+    font-weight: 700;
+}
+
+.project-container .project {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-header {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.project {
+    /* margin-bottom: 20px; */
+}
+
+.exercises {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding: 40px;
+}
+
+.footer {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    padding: 20px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* Base styles remain unchanged */
+
+/* Mobile breakpoint styles */
+@media (max-width: 768px) {
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+  
+    .header,
+    .project-container,
+    .exercises,
+    .footer {
+      grid-column: unset; /* Removes grid layout */
+      grid-row: unset;    /* Removes grid layout */
+      width: 100%;        /* Ensures full width for each section */
+      padding: 20px;      /* Adds consistent padding */
+    }
+  
+    .footer {
+      width: 100%; /* Center-align and full width */
+    }
+  }

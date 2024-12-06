@@ -1,66 +1,153 @@
 <!DOCTYPE html>
-<html> 
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kris's class website</title>
-    <link rel="icon" type="image/png" href="images/icon.png"/>
+    <title>Kris x Software for People (2024)</title>
+    <link rel="icon" type="image/png" href="public/images/icon.png" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1 id="top">Kris's class website</h1>
-    <h2>Class projects</h2>
-    <ol>
-      <li>
-        <a href="projects/project-01/home.html">Project 1</a>
-      </li>
-      <li>
-        Project 2 (coming soon!)
-      </li>
-      <li>
-        Project 3 (coming soon!)
-      </li>
-    </ol>
-    <h2>Exercises</h2>
-    <h2>Class projects</h2>
-    <ol>
-      <li>
-        <a href="exercises/enzo-mari-remix/index.html">Enzo Mari</a>
-      </li>
-      <li>
-        <a href="exercises/keyboard_instrument/index.html">Keyboard Instrument</a>
-      </li>
-    </ol>
-    <br>
-    <br>
-    <br>
-    <div>
-      <h4>About this site</h4>
-      <p>Here's a little paragraph about this site, in a paragraph tag... This is just some sample code to help you get started. You'll notice the HTML page has all the basic parts. You can change the title and the h1 at the top to include your name. I also set up a few links... click on "Top 10" and you'll go to the start of a top 10 list... then there's a link back to this page. Can copy and paste any of these tags or delete them and replace with your own content.</p>
-      <div>
-        <a href="http://software-for-people.net/">Visit my homepage!</a>
+    <!-- Header -->
+    <div class="header">
+      <p>
+        <b>Software for People</b>,
+        <br />
+        a Yale art class I took<sup>1</sup>
+        <br />
+        in Fall 2024
+      </p>
+    </div>
+
+    <!-- Projects -->
+    <div class="project-container">
+      <div class="section-header">Projects</div>
+
+      <div class="project">
+        <div class="title">
+          <a href="projects/project-01/home.html">
+            I. Collection -> Ad or art?
+          </a>
+        </div>
+        <div class="description">
+          Is the photography I create nothing more than mere advertisement?
+          Can I salvage anything personal or artistic out of these pieces of
+          work?
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="title">
+          <a href="projects/project-02/index.html">
+            II. Tool for One -> Kojo Aziabor League Report
+          </a>
+        </div>
+        <div class="description">
+          Inspired by the UIs of various soccer video games across the past
+          decade, I wanted to make a newspaper website: a&#41; showcasing the
+          aggregate score of my matches in tennis, ping pong, FIFA, and more
+          against my twin brother, b&#41; allowing either of us to securely
+          update the score at any time, and c&#41; helping us immerse
+          ourselves in the competition with press conferences after every
+          result. Now, my brother finally has the established record of wins
+          and losses he has always wanted. It states the obvious fact I am
+          better but I'm glad he has it, I guess.
+          <br />
+          <br />
+          Access the documentation on the site’s description page.
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="title">
+          <a
+            href="https://www.figma.com/deck/rHHShV4dZUOmbBifvZ2rjK/Hyperlinks-proj?node-id=0-1&t=51YuMDOgvqPjg8rh-1"
+          >
+            III. Final Presentation -> Hyperlinks (w/ Zack)
+          </a>
+        </div>
+        <div class="description">
+          Through a historical survey of hyperlinks and a crafted prototype on
+          a new way to visually and dynamically search the web, Zach and I
+          explore how hyperlinks can be seen past their conventional use and
+          return to the original vision and purpose.
+        </div>
       </div>
     </div>
-    <p>Technology is <b>truly</b> amazing!</p>
-    <div>
-      <img src="images/penny.png">
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <footer>
-      <div>
-        <a href="#top">Back to top</a>
+
+    <!-- Exercises -->
+    <div class="exercises">
+      <div class="section-header">Exercises</div>
+
+      <div class="exercise">
+        <a href="exercises/ambient-website/index.html"> Ambient Website </a>
       </div>
-    </footer>
+
+      <div class="exercise">
+        <a href="exercises/website-as/index.html"> Website As... </a>
+      </div>
+
+      <div class="exercise">
+        <a href="exercises/enzo-mari-remix/index.html"> Enzo Mari Remix </a>
+      </div>
+
+      <div class="exercise">
+        <a href="exercises/keyboard_instrument/index.html">
+          Keyboard Instrument
+        </a>
+      </div>
+
+      <div class="exercise">
+        <a href="exercises/input-output/index.html"> Input/Output </a>
+      </div>
+
+      <div class="exercise">
+        <a href="exercises/google-sheet-cms/"> Google Sheet as CMS </a>
+      </div>
+
+      <div class="exercise">
+        Bookmarklet (
+        <!-- LINK NEEDS CHANGING -->
+        <a href="exercises/enzo-mari-remix/index.html"> source code </a>
+        |
+        <!-- LINK NEEDS CHANGING -->
+        <a href="exercises/enzo-mari-remix/index.html"> documentation </a>
+        )
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-element">
+        <p>
+        <b>1</b> I am <a href="https://krisaziabor.com">Kris Aziabor</a>, a
+        current junior majoring in Computing and the Arts.
+        </p>
+      </div>
+
+      <div class="footer-element">
+        <p>
+        <b>Thank you</b> Alvin and Theo for your support during the semester,
+        and thank you to my classmates too &lt;3
+        </p>
+      </div>
+
+      <div class="footer-element">
+        <p>
+        <b>Want to see all the code?</b>
+        <a href="https://github.com/krisaziabor/interactive"
+          >View the Github repository here.</a
+        >
+        </p>
+      </div>
+
+      <div class="footer-element">
+        <p>
+        <b>Colophon: ABC Diatype Edu</b>
+        <a href="https://abcdinamo.com/typefaces/diatype"
+          >from Dinamo Typefaces</a
+        >
+        </p>
+      </div>
+    </div>
   </body>
 </html>
-
-    
-    
-    
-
-
-      
