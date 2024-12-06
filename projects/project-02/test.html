@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Info</title>
+</head>
+<body>
+    <h1>Player Info</h1>
+    <label for="playerID">Enter Player ID:</label>
+    <input type="number" id="playerID" placeholder="Enter ID">
+    <button id="fetchPlayer">Get Player Name</button>
+    <div id="playerInfo"></div>
+
+    <script>
+        // Attach an event listener to the button
+        document.getElementById('fetchPlayer').addEventListener('click', () => {
+            // Get the player ID from the input field
+            const playerID = document.getElementById('playerID').value;
+
+            // Fetch the player's name from the backend
+            fetch(`http://localhost:3000/player/${playerID}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Display the player's name
+                    const playerInfoDiv = document.getElementById('playerInfo');
+                    playerInfoDiv.innerText = `Player Name: ${data.name}`;
+                })
+                .catch(error => {
+                    // Handle errors (e.g., player not found)
+                    const playerInfoDiv = document.getElementById('playerInfo');
+                    playerInfoDiv.innerText = `Error: ${error.message}`;
+                });
+        });
+    </script>
+</body>
+</html>
