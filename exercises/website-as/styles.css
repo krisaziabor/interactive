@@ -1,0 +1,144 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #fff;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(45deg, #E52D37, #039138);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.disruptive-title {
+    font-size: 10rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    animation: flicker 2s infinite;
+    margin: 0;
+}
+
+.subheader {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Call-to-Action Section */
+.call-to-action {
+    background: #111;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.cta-block {
+    display: inline-block;
+    max-width: 600px;
+    padding: 2rem;
+    border: 2px solid #E52D37;
+    border-radius: 5px;
+}
+
+.cta-block h2 {
+    font-size: 2rem;
+    color: #039138;
+    margin-bottom: 1rem;
+}
+
+.cta-block p {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.cta-button {
+    text-decoration: none;
+    color: #fff;
+    background: #E52D37;
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #039138;
+}
+
+/* Disruptive Message Section */
+.disruptive-message {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.glitch {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #E52D37;
+    animation: glitch-animation 1s infinite;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    color: #aaa;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .disruptive-title {
+        font-size: 2.5rem;
+    }
+
+    .cta-block {
+        padding: 1.5rem;
+    }
+
+    .glitch {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .disruptive-message {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .glitch {
+        font-size: 2.5rem;
+    }
+}
+
+/* Animations */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes glitch-animation {
+    0% {
+        text-shadow: 2px 2px #039138, -2px -2px #E52D37;
+    }
+    50% {
+        text-shadow: -2px -2px #039138, 2px 2px #E52D37;
+    }
+    100% {
+        text-shadow: 2px -2px #039138, -2px 2px #E52D37;
+    }
+}
