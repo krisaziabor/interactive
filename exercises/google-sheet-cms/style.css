@@ -1,0 +1,45 @@
+body {
+  background-color: #FFF;
+  color: #550E90;
+  font-family: "abcDiatype";
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+  grid-template-rows: auto auto auto; /* Auto row height for header, equal heights for the rest */
+  gap: 20px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+@font-face {
+  font-family: "abcDiatype";
+  src: url("/public/fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+}
+
+.header {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3:
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+fieldset {
+  border: none;
+}
+
+button {
+  border: 2px solid purple;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="contact form example" />
+    <title>Google Sheets CMS</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- This demo is based on the following code: https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server, as well as tutorials:
+  https://www.youtube.com/watch?v=15y1D1mGKdE. I also used chatGPT to modify the code. -->
+  </head>
+
+  <body>
+    <div class="header">
+      <b>Who will win the Premier League Season?</b>
+      <br />
+      <br />
+      At this point in the Premier League season
+      <br />
+      (matchweek 15), it seems like there are four legitimate contenders:
+      <br />
+      Liverpool, Arsenal, Chelsea, and Man City.
+      <br />
+      <br />
+      Select your predicted winner below:
+    </div>
+
+    <div class="form">
+      <!-- List of dropdowns: One for FIRST PLACE, SECOND, THIRD, and FOURTH -->
+      <form
+        class="gform pure-form pure-form-stacked"
+        method="POST"
+        data-email="example@email.net"
+        action="https://script.google.com/macros/s/AKfycbwO7Vmxsmwhblugq4aIwvoUN_IkZclK81XxJVYHNu2G0nAitxyFvGztj46CMKEpb2AE/exec"
+      >
+        <div class="form-elements">
+          <fieldset>
+            <label for="first">First Place: </label>
+            <select id="first" name="first">
+              <option value="Liverpool">Liverpool</option>
+              <option value="Arsenal">Arsenal</option>
+              <option value="Chelsea">Chelsea</option>
+              <option value="Man City">Man City</option>
+            </select>
+          </fieldset>
+
+          <!-- submit button -->
+          <button class="button-success pure-button button-xlarge">
+            Submit Rankings
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <ol id="sheetData"></ol>
+
+    <script data-cfasync="false" src="submit-data.js"></script>
+    <script src="get-data.js"></script>
+    <!-- END -->
+  </body>
+</html>
