@@ -9,8 +9,8 @@ function getData(url) {
         // Request was successful
         var response = JSON.parse(xhr.responseText);
         // Handle the response data here
-         handleData(response);
-         console.log(response);
+        handleData(response);
+        console.log(response);
       } else {
         // Request failed
         console.error('Request failed:', xhr.status);
@@ -25,6 +25,11 @@ function handleData(response) {
   var sheetDataElement = document.getElementById("sheetData");
   sheetDataElement.innerHTML = ""; // Clear previous data
 
+  // Sort the response array by Votes in descending order
+  response.sort(function(a, b) {
+    return b.Votes - a.Votes;
+  });
+
   response.forEach(function(item) {
     // Create a new <li> element
     var listItem = document.createElement("li");
@@ -37,8 +42,5 @@ function handleData(response) {
   });
 }
 
-
 // Example usage:
 getData(AppScriptUrl);
-
-
