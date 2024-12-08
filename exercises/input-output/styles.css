@@ -1,0 +1,22 @@
+#key_display {
+  font-size: 30px;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  color: white;
+  text-align: center;
+}
+
+body {
+  background-color: black;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
