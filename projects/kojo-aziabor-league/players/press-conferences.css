@@ -1,0 +1,129 @@
+body {
+    background-color: #000;
+    color: #F7F7F4;
+    font-family: "ABCDiatypeEdu", sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+
+@font-face {
+    font-family: "editorialNew";
+    src: url("../fonts/PPEditorialNew-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("../fonts/ABCDiatypeEdu-Medium.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("../fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("../fonts/ABCDiatypeEdu-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+header {
+    color: #F7F7F4;
+    text-align: center;
+    margin-top: 20px;
+}
+
+header h1 {
+    color: #F7F7F4;
+    font-family: "editorialNew";
+    font-size: 5em;
+    font-weight: bold;
+}
+
+header h2 {
+    font-family: "ABCDiatypeEdu";
+    font-size: 3em;
+    font-weight: normal;
+}
+
+.question-container {
+    font-family: "ABCDiatypeEdu";
+    text-align: left;
+    margin: 20px auto;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.question-container p {
+    font-size: 2em;
+    margin: 5px 0;
+}
+
+.response-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 60%;
+}
+
+.response-container input {
+    font-family: "ABCDiatypeEdu";
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.response-container button {
+    font-family: "ABCDiatypeEdu";
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    body {
+        display: grid;
+        align-items: start;
+        justify-content: start;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 4.5em;
+    }
+
+    header h2 {
+        font-size: 1.5em;
+    }
+
+    .question-container {
+        width: 100%;
+    }
+
+    .question-container p {
+        font-size: 1.2em;
+    }
+
+    .response-container {
+        width: 100%;
+    }
+
+    .response-container input {
+        width: 90%;
+        font-size: 1.2em;
+        padding: 15px;
+    }
+
+    .response-container button {
+        font-size: 1.2em;
+        padding: 15px 25px;
+    }
+}

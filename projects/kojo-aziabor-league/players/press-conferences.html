@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="press-conferences.css">
+</head>
+<body>
+    <header>
+        <h1 id="main-heading">Post-match press conference, Jay</h1>
+        <h2 id="sub-heading">Kris defeats Jay in Tennis, <br>6-4 5-7 7-6(2)</h2>
+    </header>
+    <div class="question-container" id="question-container">
+        <p><strong>Brett Ortega</strong><br>The Athletic</p>
+        <p>A defeat on the for you today, Jay. Do you have faith in turning this around or do you think Kris might just have you beaten?</p>
+    </div>
+    <div class="response-container" id="response-container">
+        <input type="text" placeholder="Enter your response and press Enter to leave">
+        <button>Storm out of press conference</button>
+    </div>
+
+    <script>
+        // Get the referrer URL
+        const referrer = document.referrer;
+
+        // Get the elements to update dynamically
+        const mainHeading = document.getElementById("main-heading");
+        const subHeading = document.getElementById("sub-heading");
+        const questionContainer = document.getElementById("question-container");
+        const responseContainer = document.getElementById("response-container");
+
+        // Detect which player the user came from based on the referrer
+        if (referrer.includes("players/kris/kris.html")) {
+            // Update heading for Kris
+            mainHeading.textContent = "Post-match press conference, Kris";
+            subHeading.textContent = "Jay defeats Kris in Tennis, 6-4 5-7 7-6(2)";
+        } else if (referrer.includes("players/jay/jay.html")) {
+            // Update heading for Jay
+            mainHeading.textContent = "Post-match press conference, Jay";
+            subHeading.textContent = "Kris defeats Jay in Tennis, 6-4 5-7 7-6(2)";
+        } else {
+            // Default case if no specific referrer is detected
+            mainHeading.textContent = "Post-match press conference";
+            subHeading.textContent = "Details about the match will be updated shortly.";
+            questionContainer.style.display = "none";
+            responseContainer.style.display = "none";
+        }
+    </script>
+</body>
+</html>
