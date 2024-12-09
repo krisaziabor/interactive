@@ -10,28 +10,26 @@
 
     <!-- Headline section -->
     <div class="headline">
-      <p>Kris's recent streak of 7 wins increases his lead over Jay to a whopping 19 in the Kojo Aziabor League.</p>
+      <p id="headline">Loading headline...</p>
     </div>
 
     <!-- Scoreboard section -->
     <div class="scoreboard">
       <div class="score-container">
-        <div class="score">183</div>
+        <div class="score" id="score-jay">Loading...</div>
         <div class="player-name" id="name-1">JAY</div>
       </div>
       <div class="score-container">
-        <div class="score">202</div>
+        <div class="score" id="score-kris">Loading...</div>
         <div class="player-name" id="name-2">KRIS</div>
       </div>
     </div>
 
-
     <!-- Image section -->
     <div class="image-container">
-      <img src="/assets/4b2106a86747912ee6514f4e5c0e9d4a.png" alt="FANS OF KRIS AZIABOR SPORTING CLUB CHEER ON AS KRIS WINS ONCE MORE" />
-      <div class="caption">FANS OF KRIS AZIABOR SPORTING CLUB CHEER ON AS KRIS WINS ONCE MORE.</div>
+      <img id="dynamic-image" src="/assets/4b2106a86747912ee6514f4e5c0e9d4a.png" alt="Loading image..." />
+      <div id="image-caption" class="caption">Loading caption...</div>
     </div>
-
 
     <!-- Reports Section -->
     <div class="reports-container">
@@ -63,8 +61,6 @@
       </div>
   </div>
 
-
-
     <!-- Footer section -->
     <footer class="footer">
         <!-- Title Row -->
@@ -85,6 +81,7 @@
         </div>
       </footer>
 
+    <script src="cms/google-sheet-cms/get-data.js"></script>
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
@@ -104,6 +101,9 @@
                 }
             }
         }
+
+        // Fetch data from the App Script URL and update the UI
+        getData(AppScriptUrl);
     </script>
 </body>
 </html>
