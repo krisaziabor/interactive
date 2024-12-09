@@ -45,12 +45,16 @@ function updateScoresAndHeadline(data) {
     const leader = jayScore > krisScore ? 'Jay' : 'Kris';
     const loser = jayScore > krisScore ? 'Kris' : 'Jay';
     const margin = Math.abs(jayScore - krisScore);
-    headline = `${leader} currently has an impressive ${margin} lead over ${loser} in the Kojo Aziabor League.`;
+    if (margin < 3) {
+      headline = `${leader} holds a narrow ${margin} game lead over ${loser}. Will ${leader} improve his run or do we have a competition on our hands?`;
+    } else {
+      headline = `${leader} currently has an impressive ${margin} lead over ${loser} in the Kojo Aziabor League.`;
+    }
     if (leader === 'Jay') {
-      imageSrc = '/assets/jay.jpg';
+      imageSrc = '../assets/jay.jpg';
       imageCaption = 'Fans of Jay Aziabor Sporting Club cheer on as Jay takes the lead.';
     } else {
-      imageSrc = '/assets/kris.png';
+      imageSrc = '../assets/kris.png';
       imageCaption = 'Fans of Kris Aziabor Sporting Club cheer on as Kris takes the lead.';
     }
   }
