@@ -209,6 +209,11 @@ footer {
     margin-top: auto;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
 

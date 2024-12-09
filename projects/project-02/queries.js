@@ -1,4 +1,4 @@
-import { app, db } from './backend-config.js';
+import { app, db } from './server.js';
 
 app.get('/player/:id', (req, res) => {
     const playerID = req.params.id;
@@ -18,6 +18,7 @@ app.get('/player/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-});
+// Remove the duplicate server listen call
+// app.listen(3000, () => {
+//     console.log('Server is running on http://localhost:3000');
+// });

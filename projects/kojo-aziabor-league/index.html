@@ -17,11 +17,11 @@
     <div class="scoreboard">
       <div class="score-container">
         <div class="score">183</div>
-        <div class="player-name" id="name-1">USER_1</div>
+        <div class="player-name" id="name-1">JAY</div>
       </div>
       <div class="score-container">
         <div class="score">202</div>
-        <div class="player-name" id="name-2">USER_2</div>
+        <div class="player-name" id="name-2">KRIS</div>
       </div>
     </div>
 
@@ -43,21 +43,9 @@
           </ul>
       </div>
       <div class="sport">
-          <h3>PICKLEBALL</h3>
-          <ul>
-              <li>ATF fines Kris $100K after racket abuse in recent defeat.</li>
-          </ul>
-      </div>
-      <div class="sport">
           <h3>SOCCER</h3>
           <ul>
               <li>Fans of Jay Football Club sing "you're getting sacked in the morning" as manager Jay Aziabor loses once more to Kris FC.</li>
-          </ul>
-      </div>
-      <div class="sport">
-          <h3>MADDEN</h3>
-          <ul>
-              <li>Jay wins 24-7, opens up a 15-game lead in Madden tally.</li>
           </ul>
       </div>
       <div class="sport">
@@ -92,37 +80,14 @@
       
         <!-- Latest Scores and Button Row -->
         <div class="footer-bottom">
-            <p><strong>LATEST SCORES</strong>
-              <br>
-            <em>FIFA KRIS 5-3 TENNIS JAY 6-2 3-6 7-6 (7-5) PING-PONG KRIS 21-15 FIFA KRIS 2-0 MADDEN JAY 31-7</em></p>
-          <button>Jay or Kris? Log in</button>
+            <a href="FIGMA LINK HERE"><button id="documentation">Read my documentation here</button></a>
+            <button id="login">Jay or Kris? Log in</button>
         </div>
       </footer>
 
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
-
-        function fetchAndDisplayPlayer(playerId, elementId) {
-          fetch(`http://localhost:3000/player/${playerId}`)
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error('Player not found');
-                }
-                return response.json();
-              })
-              .then((data) => {
-                document.getElementById(elementId).innerText = `${data.name}`;
-              })
-              .catch((error) => {
-                document.getElementById(elementId).innerText = `${error.message}`;
-              });
-          }
-
-          document.addEventListener('DOMContentLoaded', () => {
-            fetchAndDisplayPlayer(1, 'name-1');
-            fetchAndDisplayPlayer(2, 'name-2');
-        });
     </script>
 </body>
 </html>
