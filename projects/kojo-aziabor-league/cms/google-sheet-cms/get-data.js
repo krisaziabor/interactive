@@ -44,7 +44,7 @@ function updateScoresAndHeadline(data) {
   let headline, imageSrc, imageCaption;
   if (jayScore === krisScore) {
     headline = `Things could not be any more tense as Kris and Jay are currently deadlocked at ${krisScore} apiece in the Kojo Aziabor League.`;
-    imageSrc = "../../assets/deadlock.webp";
+    imageSrc = "assets/deadlock.webp";
     imageCaption = "Kris and Jay are deadlocked in the Kojo Aziabor League.";
   } else {
     const leader = jayScore > krisScore ? "Jay" : "Kris";
@@ -56,11 +56,11 @@ function updateScoresAndHeadline(data) {
       headline = `${leader} currently has an impressive ${margin} lead over ${loser} in the Kojo Aziabor League. ${loser} has lots of work to do.`;
     }
     if (leader === "Jay") {
-      imageSrc = "../../assets/jay.jpg";
+      imageSrc = "assets/jay.jpg";
       imageCaption =
         "Fans of Jay Aziabor Sporting Club cheer on as Jay takes the lead.";
     } else {
-      imageSrc = "../../assets/kris.png";
+      imageSrc = "assets/kris.png";
       imageCaption =
         "Fans of Kris Aziabor Sporting Club cheer on as Kris takes the lead.";
     }
