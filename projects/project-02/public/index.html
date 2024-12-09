@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Kojo Aziabor League Report</title>
+</head>
+<body>
+
+    <!-- Headline section -->
+    <div class="headline">
+      <p>Kris's recent streak of 7 wins increases his lead over Jay to a whopping 19 in the Kojo Aziabor League.</p>
+    </div>
+
+    <!-- Scoreboard section -->
+    <div class="scoreboard">
+      <div class="score-container">
+        <div class="score">183</div>
+        <div class="player-name" id="name-1">USER_1</div>
+      </div>
+      <div class="score-container">
+        <div class="score">202</div>
+        <div class="player-name" id="name-2">USER_2</div>
+      </div>
+    </div>
+
+
+    <!-- Image section -->
+    <div class="image-container">
+      <img src="/assets/4b2106a86747912ee6514f4e5c0e9d4a.png" alt="FANS OF KRIS AZIABOR SPORTING CLUB CHEER ON AS KRIS WINS ONCE MORE" />
+      <div class="caption">FANS OF KRIS AZIABOR SPORTING CLUB CHEER ON AS KRIS WINS ONCE MORE.</div>
+    </div>
+
+
+    <!-- Reports Section -->
+    <div class="reports-container">
+      <h2>The Daily Roundup</h2>
+      <div class="sport">
+          <h3>TENNIS</h3>
+          <ul>
+              <li>ATF (Aziabor Tennis Federation) fines Jay $5K after interview tantrum following loss.</li>
+          </ul>
+      </div>
+      <div class="sport">
+          <h3>PICKLEBALL</h3>
+          <ul>
+              <li>ATF fines Kris $100K after racket abuse in recent defeat.</li>
+          </ul>
+      </div>
+      <div class="sport">
+          <h3>SOCCER</h3>
+          <ul>
+              <li>Fans of Jay Football Club sing "you're getting sacked in the morning" as manager Jay Aziabor loses once more to Kris FC.</li>
+          </ul>
+      </div>
+      <div class="sport">
+          <h3>MADDEN</h3>
+          <ul>
+              <li>Jay wins 24-7, opens up a 15-game lead in Madden tally.</li>
+          </ul>
+      </div>
+      <div class="sport">
+          <h3>FIFA</h3>
+          <ul>
+              <li>Kris opens the gap in FIFA to 7 wins.</li>
+              <li>Jay forced to forfeit with 3 red cards.</li>
+          </ul>
+      </div>
+      <div class="sport">
+          <h3>PING-PONG</h3>
+          <ul>
+              <li>Kris defeats Jay 23-21 in stunning match: opens overall tally lead to 19.</li>
+          </ul>
+      </div>
+  </div>
+
+
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <!-- Title Row -->
+        <div class="footer-title">
+          <h1>Kojo Aziabor League Report</h1>
+        </div>
+      
+        <!-- Date and Subtitle Row -->
+        <div class="footer-subtitle">
+          <p id="current-date"></p>
+          <p>Today's Paper</p>
+        </div>
+      
+        <!-- Latest Scores and Button Row -->
+        <div class="footer-bottom">
+            <p><strong>LATEST SCORES</strong>
+              <br>
+            <em>FIFA KRIS 5-3 TENNIS JAY 6-2 3-6 7-6 (7-5) PING-PONG KRIS 21-15 FIFA KRIS 2-0 MADDEN JAY 31-7</em></p>
+          <button><a href="/login">Jay or Kris? Log in</a></button>
+        </div>
+      </footer>
+
+    <script>
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+
+        function fetchAndDisplayPlayer(playerId, elementId) {
+          fetch(`http://localhost:3000/player/${playerId}`)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error('Player not found');
+                }
+                return response.json();
+              })
+              .then((data) => {
+                document.getElementById(elementId).innerText = `${data.name}`;
+              })
+              .catch((error) => {
+                document.getElementById(elementId).innerText = `${error.message}`;
+              });
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            fetchAndDisplayPlayer(1, 'name-1');
+            fetchAndDisplayPlayer(2, 'name-2');
+        });
+    </script>
+</body>
+</html>

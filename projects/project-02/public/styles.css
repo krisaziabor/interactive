@@ -1,0 +1,318 @@
+body {
+    background-color: #F7F7F4;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* setting up two equal columns */
+    grid-template-rows: auto 1fr auto; /* Top to bottom: Header, main content, footer */
+    gap: 20px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "editorialNew";
+    src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-Medium.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ABCDiatypeEdu";
+    src: url("fonts/ABCDiatypeEdu-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+h1 {
+    font-family: "editorialNew";
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+}
+
+.headline {
+    font-family: "editorialNew";
+    font-size: 2.5rem;
+    padding-left: 20px;
+    grid-column: 1 / 2; /* Occupies first column */
+    grid-row: 1 / 2; /* Stays in first row */
+    align-self: start; /* Content starts at top of container */
+    display: inline-block;
+}
+
+.image-container {
+    grid-column: 1 / 2; /* Occupies first column */
+    grid-row: 2 / 3; /* Below the headline */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container .caption {
+    margin-top: 10px;
+    font-family: "ABCDiatypeEdu";
+    font-size: 1rem;
+    color: #000;
+    align-content: start;
+}
+
+.scoreboard {
+    grid-column: 2 / 2; /* Occuppies second column */
+    grid-row: 1 / 2; /* first row */
+    display: flex;
+    justify-content: flex-end; /* Spacing between Jay and Kris scores */
+    align-items: center;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    font-family: "ABCDiatypeEdu";
+    font-size: 5rem;
+}
+
+.player-name {
+    font-family: "editorialNew";
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+
+.reports-container {
+    grid-column: 2 / 2; /* Occupies second column */
+    grid-row: 2 / 3; /* Second row */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-items: end;
+    text-align: right;
+    padding: 20px;
+    width: 60%;
+    margin-left: auto;
+}
+
+.reports-container h2 {
+    grid-column: 1 / -1;
+    font-family: "editorialNew";
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.sport h3 {
+    font-family: "ABCDiatypeEdu";
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 5px;
+}
+
+.sport ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sport ul li {
+    font-family: "editorialNew";
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Footer Container */
+.footer {
+    display: grid;
+    grid-column: 1 / -1; /* Spanning accross both columns */
+    margin-top: auto;
+    font-family: "editorialNew";
+    grid-template-rows: auto auto auto; /* Three rows */
+    gap: 20px; /* Space between rows */
+    padding: 20px;
+}
+  
+/* Title Styling */
+.footer-title h1 {
+    font-size: 4rem; /* Large title */
+    margin: 0;
+}
+  
+/* Subtitle Styling */
+.footer-subtitle p {
+    margin: 0;
+    font-size: 2rem;
+    font-family: "ABCDiatypeEdu";
+}
+  
+/* Bottom Row Styling */
+.footer-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Spacing between elements */
+    justify-content: space-between; /* Distribute space between elements */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: "ABCDiatypeEdu";
+}
+
+
+.footer-bottom button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #F7F7F4;
+    color: #000;
+    border: 1px solid #000; /* Thin black border */
+    cursor: pointer;
+    font-family: "ABCDiatypeEdu";
+    margin-left: auto; /* Push button to the far right */
+}
+
+.footer-bottom button:hover {
+    background-color: #000;
+    color: #F7F7F4;
+}
+
+footer {
+    margin-top: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    /* Headline Section */
+    .headline {
+        text-align: center;
+        font-size: 1.75rem;
+        padding: 10px 0 0 0;
+    }
+
+    /* Scoreboard Section */
+    .scoreboard {
+        display: flex;
+        justify-content: center; /* Center the divs horizontally */
+        align-items: center;
+        gap: 20px;
+        padding: 0px;
+    }
+
+    .score {
+        font-size: 3rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    /* Image Section */
+    .image-container {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .image-container .caption {
+        font-size: 0.875rem;
+        margin-top: 5px;
+    }
+
+    /* Reports Section */
+    .reports-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+        padding: 10px 0;
+    }
+
+    .reports-container h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .sport h3 {
+        font-size: 1.25rem;
+    }
+
+    .sport ul li {
+        font-size: 0.875rem;
+    }
+
+    /* Footer Section */
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .footer-title h1 {
+        font-size: 2rem;
+    }
+
+    .footer-subtitle p {
+        font-size: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.875rem;
+    }
+
+    .footer-bottom button {
+        font-size: 0.875rem;
+        padding: 8px 16px;
+    }
+}
+    
+}
