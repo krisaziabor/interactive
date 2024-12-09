@@ -37,26 +37,25 @@
       <div class="sport">
           <h3>TENNIS</h3>
           <ul>
-              <li>ATF (Aziabor Tennis Federation) fines Jay $5K after interview tantrum following loss.</li>
+              <li id="tennis-score">Loading...</li>
           </ul>
       </div>
       <div class="sport">
           <h3>FM</h3>
           <ul>
-              <li>Fans of Jay Football Club sing "you're getting sacked in the morning" as manager Jay Aziabor loses once more to Kris FC.</li>
+              <li id="fm-score">Loading...</li>
           </ul>
       </div>
       <div class="sport">
           <h3>FIFA</h3>
           <ul>
-              <li>Kris opens the gap in FIFA to 7 wins.</li>
-              <li>Jay forced to forfeit with 3 red cards.</li>
+              <li id="fifa-score">Loading...</li>
           </ul>
       </div>
       <div class="sport">
           <h3>PING-PONG</h3>
           <ul>
-              <li>Kris defeats Jay 23-21 in stunning match: opens overall tally lead to 19.</li>
+              <li id="pingpong-score">Loading...</li>
           </ul>
       </div>
   </div>
@@ -102,8 +101,13 @@
             }
         }
 
-        // // Fetch data from the App Script URL and update the UI
-        // getData(AppScriptUrl);
-    </script>
-</body>
-</html>
+        function updateSportScores(data) {
+            const scores = {};
+            data.forEach(row => {
+              const name = row[0]; // Player's name
+              const score = parseInt(row[1], 10); // Player's score
+              scores[name.toLowerCase()] = isNaN(score) ? 0 : score; // Handle NaN values
+            });
+        
+            document.getElementById('tennis-score').textContent = `Jay: ${scores.jay || 0}, Kris: ${scores.kris || 0}`;
+            document.getElementById('fm-score').textContent = `Jay: ${scores.jay || 0}, Kris: ${scores.kris || 0}`;
