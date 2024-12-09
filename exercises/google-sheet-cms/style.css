@@ -13,7 +13,7 @@ body {
 
 @font-face {
   font-family: "abcDiatype";
-  src: url("/public/fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+  src: url("../../public/fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
 }
 
 .header {
