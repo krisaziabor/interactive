@@ -113,6 +113,7 @@ function displayPingPong(data) {
 
   const jayScore = pingpongscores.jay || 0;
   const krisScore = pingpongscores.kris || 0;
+  const sport = "ping-pong";
 
   if (krisScore === jayScore) {
     headline = `Kris and Jay are tied in ${sport} with ${krisScore} points each.`;
@@ -140,6 +141,7 @@ function displayFifa(data) {
 
   const jayScore = fifascores.jay || 0;
   const krisScore = fifascores.kris || 0;
+  const sport = "FIFA";
 
   if (krisScore === jayScore) {
     headline = `Kris and Jay are tied in ${sport} with ${krisScore} points each.`;
@@ -167,6 +169,7 @@ function displayFM(data) {
 
   const jayScore = fmscores.jay || 0;
   const krisScore = fmscores.kris || 0;
+  const sport = "FM";
 
   if (krisScore === jayScore) {
     headline = `Kris and Jay are tied in ${sport} with ${krisScore} points each.`;
