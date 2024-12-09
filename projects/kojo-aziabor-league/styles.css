@@ -197,6 +197,7 @@ h1 {
     cursor: pointer;
     font-family: "ABCDiatypeEdu";
     margin-left: auto; /* Push button to the far right */
+    border-radius: 10px;
 }
 
 .footer-bottom button:hover {
@@ -213,6 +214,8 @@ h1 {
     cursor: pointer;
     font-family: "ABCDiatypeEdu";
     margin-left: auto; /* Push input to the far right */
+    /* rounding out corners */
+    border-radius: 10px;
 }
 
 .footer-bottom input[type="text"]:hover {
