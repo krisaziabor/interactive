@@ -9,10 +9,10 @@ window.getData = function getData(url) {
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.responseText);
         updateScoresAndHeadline(response.aggregate);
-        displayTennis(response);
-        displayPingPong(response);
-        displayFifa(response);
-        displayFM(response);
+        // displayTennis(response);
+        // displayPingPong(response);
+        // displayFifa(response);
+        // displayFM(response);
       } else {
         console.error("Request failed:", xhr.status);
       }
@@ -44,8 +44,6 @@ function updateScoresAndHeadline(data) {
   let headline, imageSrc, imageCaption;
   if (jayScore === krisScore) {
     headline = `Things could not be any more tense as Kris and Jay are currently deadlocked at ${krisScore} apiece in the Kojo Aziabor League.`;
-    imageSrc = "assets/deadlock.webp";
-    imageCaption = "Kris and Jay are deadlocked in the Kojo Aziabor League.";
   } else {
     const leader = jayScore > krisScore ? "Jay" : "Kris";
     const loser = jayScore > krisScore ? "Kris" : "Jay";
@@ -55,21 +53,11 @@ function updateScoresAndHeadline(data) {
     } else {
       headline = `${leader} currently has an impressive ${margin} lead over ${loser} in the Kojo Aziabor League. ${loser} has lots of work to do.`;
     }
-    if (leader === "Jay") {
-      imageSrc = "assets/jay.jpg";
-      imageCaption =
-        "Fans of Jay Aziabor Sporting Club cheer on as Jay takes the lead.";
-    } else {
-      imageSrc = "assets/kris.png";
-      imageCaption =
-        "Fans of Kris Aziabor Sporting Club cheer on as Kris takes the lead.";
-    }
   }
 
   // Update the headline, image, and caption
   document.getElementById("headline").textContent = headline;
-  document.getElementById("dynamic-image").src = imageSrc;
-  document.getElementById("image-caption").textContent = imageCaption;
+
 }
 function displayTennis(data) {
   const tennisScores = { kris: 0, jay: 0 };

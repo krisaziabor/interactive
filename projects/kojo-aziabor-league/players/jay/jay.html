@@ -4,72 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../players/players.css" />
-    <title>Jay's Dashboard – Kojo Aziabor League Report</title>
+    <title>Kris's Dashboard – Kojo Aziabor League Report</title>
 </head>
-<body class="jay-page">
+<body class="kris-page">
 
     <!-- Headline section -->
     <div class="headline">
-      <p>A FIFA victory for Jay decreases the deficit to 18 and increases his lead in FIFA by 12.</p>
+      <p id="headline">Loading headline...</p>
     </div>
 
     <!-- Scoreboard section -->
     <div class="scoreboard">
       <div class="score-container">
-        <div class="score">183</div>
+        <div class="score" id="score-jay">Loading...</div>
         <div class="player-name" id="name-1">JAY</div>
       </div>
       <div class="score-container">
-        <div class="score">202</div>
+        <div class="score" id="score-kris">Loading...</div>
         <div class="player-name" id="name-2">KRIS</div>
       </div>
     </div>
 
-
     <!-- Sport Select Section -->
-    <div class="sports-select">
+<form id="score-form" action="https://script.google.com/macros/s/AKfycbwg6nG3XFIsszMZNTMo3oDgQmGPrtBGs8LrNaHk-VWVtJ_909EbHgZQ6BPGBQCugd2A/exec" method="POST" data-sheet="responses">
+  <!-- Sport Selection -->
+  <div class="sports-select">
       <h2>SELECT SPORT</h2>
       <div class="sport">
-          <ul>
-                <li>TENNIS</li>
-                <li>PING-PONG</li>
-                <li>FIFA</li>
-                <li>FM</li>
-          </ul>
+          <label for="sport">Choose a sport:</label>
+          <select name="sport" id="sport" class="sport-select" required>
+              <option value="" disabled selected>Select a sport</option>
+              <option value="TENNIS">TENNIS</option>
+              <option value="PING-PONG">PING-PONG</option>
+              <option value="FIFA">FIFA</option>
+              <option value="FM">FM</option>
+          </select>
       </div>
-    </div>
+  </div>
 
+  <!-- Winner and Score Section -->
+  <div class="score-form">
+      <h2>RECORD SCORE</h2>
+      <div class="sport">
+          <!-- Winner Selection -->
+          <label for="winner">Choose the winner:</label>
+          <select name="winner" id="winner" class="winner-select" required>
+              <option value="" disabled selected>Select the winner</option>
+              <option value="Jay">Jay</option>
+              <option value="Kris">Kris</option>
+          </select>
 
-    <!-- Sport Select Section -->
-    <div class="score-form">
-        <h2>RECORD SCORE</h2>
-        <div class="sport">
-            <ul>
-                <li>
-                    <div class="player-form" id="jay">
-                        <label for="jay-score">JAY</label>
-                        <input type="number" id="jay-score" />
-                    </div>
-                </li>
-                <li>
-                    <div class="player-form" id="kris">
-                        <label for="kris-score">KRIS</label>
-                        <input type="number" id="kris-score" />
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
+          <br />
+          <!-- Score Input -->
+          <label for="score">Enter the score:</label>
+          <input type="text" id="score" name="score" placeholder="e.g., 2-1" required />
+      </div>
+  </div>
+</form>
 
     <!-- Footer section -->
     <footer class="footer">
         <!-- Title Row -->
 
-                <!-- Date and Subtitle Row -->
+        <!-- Date and Subtitle Row -->
         <div class="footer-subtitle">
-          <p id="current-date"></p>
           <p>Hi Jay, welcome back to the</p>
         </div>
 
@@ -77,18 +75,46 @@
           <a href='/'><h1>Kojo Aziabor League Report</h1></a>
         </div>
       
-
-      
         <!-- Latest Scores and Button Row -->
         <div class="footer-bottom">
-            <a href="https://www.figma.com/slides/cJf9r2ktw1PLXcHPTxgrx4/Kojo-Aziabor-League--%3E-ART-369?node-id=0-1&t=eERPGgcCygLu3eSV-1"><button id="documentation">Submit score & enter media room</button></a>
+              <button type="submit" form="score-form" id="documentation">Submit score & enter media room</button>
         </div>
       </footer>
 
+    <script src="../../cms/google-sheet-cms/player-get-data.js"></script>
+    <script src="../../cms/google-sheet-cms/submit-data.js"></script>
     <script>
-        if (!sessionStorage.getItem('authorized') || sessionStorage.getItem('authorized') !== 'jay') {
+        if (!sessionStorage.getItem('authorized') || sessionStorage.getItem('authorized') !== 'kris') {
             window.location.href = '/';
         }
+    </script>
+    <script>
+      document.getElementById("score-form").addEventListener("submit", function (event) {
+        // Redirect to the home page after the form is submitted
+        event.preventDefault(); // Prevent the default submission to handle redirect
+        const form = event.target;
+    
+        // Submit the form data
+        const actionUrl = form.action;
+        const formData = new FormData(form);
+    
+        fetch(actionUrl, {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Redirect to the home page
+              window.location.href = "/";
+            } else {
+              alert("An error occurred while submitting the form. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Submission error:", error);
+            alert("An error occurred while submitting the form. Please try again.");
+          });
+      });
     </script>
 </body>
 </html>

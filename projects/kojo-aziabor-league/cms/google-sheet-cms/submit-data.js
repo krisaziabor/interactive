@@ -1,10 +1,11 @@
 (function() {
   // Get all data in the form and return as an object
   function getFormData(form) {
-    var elements = form.elements;
-    var honeypot;
+    const elements = form.elements;
+    let honeypot;
 
-    var fields = Object.keys(elements).filter(function(k) {
+    // Filter out honeypot field
+    const fields = Object.keys(elements).filter(function(k) {
       if (elements[k].name === "honeypot") {
         honeypot = elements[k].value; // Honeypot field to catch spam bots
         return false;
@@ -20,18 +21,16 @@
       return self.indexOf(item) === pos && item;
     });
 
-    var formData = {};
+    const formData = {};
     fields.forEach(function(name) {
-      var element = elements[name];
-      
-      // Singular form elements
+      const element = elements[name];
       formData[name] = element.value;
 
-      // Multiple selection form elements
+      // Handle multiple-selection form elements
       if (element.length) {
-        var data = [];
-        for (var i = 0; i < element.length; i++) {
-          var item = element.item(i);
+        const data = [];
+        for (let i = 0; i < element.length; i++) {
+          const item = element.item(i);
           if (item.checked || item.selected) {
             data.push(item.value);
           }
@@ -39,6 +38,9 @@
         formData[name] = data.join(', ');
       }
     });
+
+    // Add timestamp field
+    formData.timestamp = new Date().toISOString();
 
     // Add additional form-specific values
     formData.formDataNameOrder = JSON.stringify(fields);
@@ -51,20 +53,26 @@
   // Handles form submission
   function handleFormSubmit(event) {
     event.preventDefault(); // Prevent default form submission
-    var form = event.target;
-    var formData = getFormData(form);
-    var data = formData.data;
+    const form = event.target;
+    const formData = getFormData(form);
+    const data = formData.data;
 
     // Skip processing if honeypot field is filled
     if (formData.honeypot) {
       return false;
     }
 
+    // Validate required fields
+    if (!data.sport || !data.winner || !data.score) {
+      alert("Please fill out all required fields (sport, winner, and score).");
+      return false;
+    }
+
     disableAllButtons(form);
 
     // Build the POST request
-    var url = form.action;
-    var xhr = new XMLHttpRequest();
+    const url = form.action;
+    const xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
@@ -78,7 +86,7 @@
     };
 
     // URL encode the form data for POST submission
-    var encoded = Object.keys(data).map(function(k) {
+    const encoded = Object.keys(data).map(function(k) {
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
     xhr.send(encoded);
@@ -86,11 +94,11 @@
 
   // Show a thank you message upon successful submission
   function showThankYouMessage(form) {
-    var formElements = form.querySelector(".form-elements");
+    const formElements = form.querySelector(".form-elements");
     if (formElements) {
       formElements.style.display = "none"; // Hide the form
     }
-    var thankYouMessage = form.querySelector(".thankyou_message");
+    const thankYouMessage = form.querySelector(".thankyou_message");
     if (thankYouMessage) {
       thankYouMessage.style.display = "block"; // Show thank you message
     }
@@ -98,24 +106,24 @@
 
   // Disable all buttons during submission
   function disableAllButtons(form) {
-    var buttons = form.querySelectorAll("button");
-    for (var i = 0; i < buttons.length; i++) {
+    const buttons = form.querySelectorAll("button");
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
   }
 
   // Re-enable all buttons in case of failure
   function enableAllButtons(form) {
-    var buttons = form.querySelectorAll("button");
-    for (var i = 0; i < buttons.length; i++) {
+    const buttons = form.querySelectorAll("button");
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].disabled = false;
     }
   }
 
   // Initialize form submission handling
   function loaded() {
-    var forms = document.querySelectorAll("form.gform");
-    for (var i = 0; i < forms.length; i++) {
+    const forms = document.querySelectorAll("form.gform");
+    for (let i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", handleFormSubmit, false);
     }
   }

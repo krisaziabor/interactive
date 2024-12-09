@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .thankyou_message {
+      display: none;
+      text-align: center;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Form Test</h1>
+  <form class="gform" action="https://script.google.com/macros/s/AKfycbwg6nG3XFIsszMZNTMo3oDgQmGPrtBGs8LrNaHk-VWVtJ_909EbHgZQ6BPGBQCugd2A/exec" method="POST" data-sheet="responses">
+    <!-- Honeypot field -->
+    <input type="text" name="honeypot" style="display:none;">
+
+    <!-- Sport -->
+    <label for="sport">Sport:</label>
+    <select name="sport" id="sport" required>
+      <option value="" disabled selected>Select a sport</option>
+      <option value="TENNIS">TENNIS</option>
+      <option value="PING-PONG">PING-PONG</option>
+      <option value="FIFA">FIFA</option>
+      <option value="FM">FM</option>
+    </select>
+
+    <!-- Winner -->
+    <label for="winner">Winner:</label>
+    <select name="winner" id="winner" required>
+      <option value="" disabled selected>Select a winner</option>
+      <option value="Jay">Jay</option>
+      <option value="Kris">Kris</option>
+    </select>
+
+    <!-- Score -->
+    <label for="score">Score:</label>
+    <input type="text" name="score" id="score" placeholder="e.g., 2-1" required>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+    
+    <!-- Thank You Message -->
+    <div class="thankyou_message">
+      <h2>Thank you! Your submission has been recorded.</h2>
+    </div>
+  </form>
+
+  <script src="submit-data.js"></script>
+</body>
+</html>
