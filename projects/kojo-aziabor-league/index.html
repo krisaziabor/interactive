@@ -100,14 +100,6 @@
                 }
             }
         }
-
-        function updateSportScores(data) {
-            const scores = {};
-            data.forEach(row => {
-              const name = row[0]; // Player's name
-              const score = parseInt(row[1], 10); // Player's score
-              scores[name.toLowerCase()] = isNaN(score) ? 0 : score; // Handle NaN values
-            });
-        
-            document.getElementById('tennis-score').textContent = `Jay: ${scores.jay || 0}, Kris: ${scores.kris || 0}`;
-            document.getElementById('fm-score').textContent = `Jay: ${scores.jay || 0}, Kris: ${scores.kris || 0}`;
+    </script>
+</body>
+</html>
