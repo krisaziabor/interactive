@@ -92,7 +92,7 @@ function displayTennis(data) {
     const leader = krisScore > jayScore ? "Kris" : "Jay";
     const loser = krisScore > jayScore ? "Jay" : "Kris";
     const margin = Math.abs(krisScore - jayScore);
-    headline = `${leader} is leading ${loser} by ${margin} in tennis.`;
+    headline = `${loser} issued $10K fine from ATA (Aziabor Tennis Association) as his loss means he trails ${leader} by ${margin} in the tennis aggregate.`;
   }
 
   document.getElementById("tennis-score").textContent = headline;
@@ -119,7 +119,7 @@ function displayPingPong(data) {
     const leader = krisScore > jayScore ? "Kris" : "Jay";
     const loser = krisScore > jayScore ? "Jay" : "Kris";
     const margin = Math.abs(krisScore - jayScore);
-    headline = `${leader} is leading ${loser} by ${margin} in ping-pong.`;
+    headline = `${leader} jubilant after massive win: leads ${loser} by ${margin} in ping-pong.`;
   }
 
   document.getElementById("pingpong-score").textContent = headline;
@@ -146,7 +146,7 @@ function displayFifa(data) {
     const leader = krisScore > jayScore ? "Kris" : "Jay";
     const loser = krisScore > jayScore ? "Jay" : "Kris";
     const margin = Math.abs(krisScore - jayScore);
-    headline = `${leader} is leading ${loser} by ${margin} in FIFA.`;
+    headline = `"Game is game": ${leader} ambivalent about ${loser}'s accusations of 'dirty play' as he wins nervy matchup in FIFA.`;
   }
 
   document.getElementById("fifa-score").textContent = headline;
@@ -173,7 +173,7 @@ function displayFM(data) {
     const leader = krisScore > jayScore ? "Kris" : "Jay";
     const loser = krisScore > jayScore ? "Jay" : "Kris";
     const margin = Math.abs(krisScore - jayScore);
-    headline = `${leader} is leading ${loser} by ${margin} in FM.`;
+    headline = `Fans of ${loser} Football Club sing "you're getting sacked in the morning" as ${loser} loses once more to ${leader} FC.`;
   }
 
   document.getElementById("fm-score").textContent = headline;
