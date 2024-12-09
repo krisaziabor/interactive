@@ -43,7 +43,7 @@
           </ul>
       </div>
       <div class="sport">
-          <h3>SOCCER</h3>
+          <h3>FM</h3>
           <ul>
               <li>Fans of Jay Football Club sing "you're getting sacked in the morning" as manager Jay Aziabor loses once more to Kris FC.</li>
           </ul>
@@ -80,14 +80,30 @@
       
         <!-- Latest Scores and Button Row -->
         <div class="footer-bottom">
-            <a href="FIGMA LINK HERE"><button id="documentation">Read my documentation here</button></a>
-            <button id="login">Jay or Kris? Log in</button>
+            <a href="https://www.figma.com/slides/cJf9r2ktw1PLXcHPTxgrx4/Kojo-Aziabor-League--%3E-ART-369?node-id=0-1&t=eERPGgcCygLu3eSV-1"><button id="documentation">Read my documentation here</button></a>
+            <input type="text" id="user-code" placeholder="Jay or Kris? Enter code" onkeypress="handleKeyPress(event)" />
         </div>
       </footer>
 
     <script>
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options);
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                const userCode = event.target.value.trim();
+                if (userCode === 'lawehkojo') {
+                    sessionStorage.setItem('authorized', 'jay');
+                    window.location.href = 'players/jay/jay.html';
+                } else if (userCode === 'attehkojo') {
+                    sessionStorage.setItem('authorized', 'kris');
+                    window.location.href = 'players/kris/kris.html';
+                } else {
+                    alert('Invalid code. Please try again.');
+                    event.target.value = '';
+                }
+            }
+        }
     </script>
 </body>
 </html>

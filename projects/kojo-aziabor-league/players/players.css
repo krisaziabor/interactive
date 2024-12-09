@@ -1,5 +1,6 @@
 body {
     background-color: #F7F7F4;
+    color: #000;
     /* display: flex;
     flex-direction: column; */
     display: grid;
@@ -12,24 +13,24 @@ body {
 
 @font-face {
     font-family: "editorialNew";
-    src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
+    src: url("/fonts/PPEditorialNew-Regular.otf") format("opentype");
 }
 
 @font-face {
     font-family: "ABCDiatypeEdu";
-    src: url("fonts/ABCDiatypeEdu-Medium.otf") format("opentype");
+    src: url("/fonts/ABCDiatypeEdu-Medium.otf") format("opentype");
     font-weight: 500;
 }
 
 @font-face {
     font-family: "ABCDiatypeEdu";
-    src: url("fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
+    src: url("/fonts/ABCDiatypeEdu-Regular.otf") format("opentype");
     font-weight: 400;
 }
 
 @font-face {
     font-family: "ABCDiatypeEdu";
-    src: url("fonts/ABCDiatypeEdu-RegularItalic.otf") format("opentype");
+    src: url("/fonts/ABCDiatypeEdu-RegularItalic.otf") format("opentype");
     font-weight: 400;
     font-style: italic;
 }
@@ -38,7 +39,6 @@ h1 {
     font-family: "editorialNew";
     font-size: 2.5rem;
     font-weight: 400;
-    color: #000;
     margin: 0;
 }
 
@@ -75,7 +75,6 @@ h1 {
     margin-top: 10px;
     font-family: "ABCDiatypeEdu";
     font-size: 1rem;
-    color: #000;
     align-content: start;
 }
 
@@ -133,7 +132,6 @@ h1 {
 .sport h3 {
     font-family: "ABCDiatypeEdu";
     font-size: 1.5rem;
-    color: #333;
     margin: 0 0 5px;
 }
 
@@ -146,7 +144,6 @@ h1 {
 .sport ul li {
     font-family: "editorialNew";
     font-size: 1rem;
-    color: #555;
 }
 
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/players/players.css" />
+    <title>Kris's Dashboard – Kojo Aziabor League Report</title>
+</head>
+<body class="kris-page">
+
+    <!-- Headline section -->
+    <div class="headline">
+      <p>A FIFA victory for Jay decreases the deficit to 18 and increases his lead in FIFA by 12.</p>
+    </div>
+
+    <!-- Scoreboard section -->
+    <div class="scoreboard">
+      <div class="score-container">
+        <div class="score">183</div>
+        <div class="player-name" id="name-1">JAY</div>
+      </div>
+      <div class="score-container">
+        <div class="score">202</div>
+        <div class="player-name" id="name-2">KRIS</div>
+      </div>
+    </div>
+
+
+    <!-- Sport Select Section -->
+    <div class="sports-select">
+      <h2>SELECT SPORT</h2>
+      <div class="sport">
+          <h3>TENNIS</h3>
+          <ul>
+                <li>TENNIS</li>
+                <li>PING-PONG</li>
+                <li>SOCCER</li>
+                <li>FM</li>
+          </ul>
+      </div>
+    </div>
+
+
+    <!-- Sport Select Section -->
+    <div class="score-form">
+        <h2>RECORD SCORE</h2>
+        <div class="sport">
+            <ul>
+                <li>
+                    <div class="player-form" id="jay">
+                        <label for="jay-score">JAY</label>
+                        <input type="number" id="jay-score" />
+                    </div>
+                </li>
+                <li>
+                    <div class="player-form" id="kris">
+                        <label for="kris-score">KRIS</label>
+                        <input type="number" id="kris-score" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <!-- Title Row -->
+
+                <!-- Date and Subtitle Row -->
+        <div class="footer-subtitle">
+          <p id="current-date"></p>
+          <p>Hi Kris, welcome back to the</p>
+        </div>
+
+        <div class="footer-title">
+          <a href='/'><h1>Kojo Aziabor League Report</h1></a>
+        </div>
+      
+
+      
+        <!-- Latest Scores and Button Row -->
+        <div class="footer-bottom">
+            <a href="https://www.figma.com/slides/cJf9r2ktw1PLXcHPTxgrx4/Kojo-Aziabor-League--%3E-ART-369?node-id=0-1&t=eERPGgcCygLu3eSV-1"><button id="documentation">Submit score & enter media room</button></a>
+        </div>
+      </footer>
+
+    <script>
+        if (!sessionStorage.getItem('authorized') || sessionStorage.getItem('authorized') !== 'kris') {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
